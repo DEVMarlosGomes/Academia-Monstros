@@ -41,3 +41,80 @@ O banco de dados foi criado com base em modelos conceitual, lógico e físico. A
   FROM Membro m
   JOIN Membro_Aula ma ON m.ID_Membro = ma.ID_Membro
   GROUP BY m.Nome;
+
+✍️ Manipulação de Dados
+Inserções (INSERT INTO)
+
+Atualizações (UPDATE)
+
+Exclusões (DELETE)
+
+⚙️ Procedimentos e Funções Armazenadas
+Função para calcular total pago por um membro:
+
+sql
+Copiar
+Editar
+CREATE FUNCTION TotalPagoPorMembro(membro_id INT) RETURNS DECIMAL(10,2) ...
+Procedimento para atualizar o plano de um membro:
+
+sql
+Copiar
+Editar
+CREATE PROCEDURE AtualizarPlanoMembro(IN p_id_membro INT, IN p_id_plano_novo INT) ...
+🚀 Otimizações com Índices
+Índices criados para melhorar performance em consultas frequentes:
+
+idx_membro_nome
+
+idx_plano_tipo
+
+idx_pagamento_membro_plano
+
+Entre outros
+
+🔄 Transações
+Aplicação de START TRANSACTION, COMMIT, ROLLBACK para garantir integridade.
+
+📁 Organização dos Scripts
+Os arquivos SQL estão organizados na pasta scripts_sql/:
+
+pgsql
+Copiar
+Editar
+scripts_sql/
+├── criar_tabelas.sql
+├── inserir_dados.sql
+├── consultas_simples.sql
+├── consultas_joins.sql
+├── funcoes.sql
+├── procedimentos.sql
+├── transacoes.sql
+💡 Exemplos de Uso
+Ver total de aulas de cada membro:
+
+sql
+Copiar
+Editar
+SELECT Nome, COUNT(*) FROM Membro_Aula GROUP BY Nome;
+Calcular total pago por membro (usando função):
+
+sql
+Copiar
+Editar
+SELECT TotalPagoPorMembro(1);
+Atualizar plano de membro (usando procedimento):
+
+sql
+Copiar
+Editar
+CALL AtualizarPlanoMembro(1, 2);
+🧾 Histórico de Atualizações
+O repositório é atualizado conforme os tópicos são abordados nas aulas. Cada nova funcionalidade é registrada com commit no GitHub, permitindo rastreabilidade das alterações e evolução do projeto.
+
+👨‍💻 Autor
+Nomes: Marlos Gomes, Breno Zein, Matheus Rodrigues, Romulo Famiglietti, Matheus Profeta
+
+Curso: Dev
+
+Disciplina: Banco de Dados
